@@ -1,0 +1,50 @@
+%implements s1_b0_g835h_ModelInitialize "C"
+
+%function ModelInitialize(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+char_T *sErr;
+int32_T previous;
+int32_T step;
+int32_T curNumNonZ;
+boolean_T isValid;
+int32_T idxOut;
+int32_T m;
+int32_T idxOffsets;
+int32_T previous_0;
+int32_T step_0;
+int32_T idxOffsets_0;
+%closefile localVarDecl
+%<SLibInsertAsyncTaskInitializeCode(system)>
+%<SLibWriteMachineInitialize()>
+%<SLibCGIRDumpSystemUserCode(1, "Start", "Header")>\
+%<SLibCGIRDumpSystemUserCode(1, "Start", "Body")>\
+/* Start for S-Function (svipwvo2): '<S1>/Results Display' */
+/*@>49635*/sErr/*@>b2f4*/ = /*@>68ca0*/GetErrorBuffer(&/*@>712e7*/cellcounting_DW./*@>7be03*/ResultsDisplay_ToVideoDevice/*@>b2f2*/[/*@>49638*/0U]);
+/*@>68ca2*/CreateHostLibrary(/*@>495c0*/"tovideodevice.dll", &/*@>712ed*/cellcounting_DW./*@>7be06*/ResultsDisplay_ToVideoDevice/*@>b2f6*/[/*@>49634*/0U]);
+/*@>b2fc*/if (*/*@<7bc5d*//*@>49631*/sErr/*@>49e55*/ == /*@>49e51*/0) {
+    /*@>68ca4*/createVideoInfo(&/*@>712f3*/cellcounting_DW./*@>7be09*/ResultsDisplay_VideoInfo/*@>b300*/[/*@>4962f*/0U], /*@>7b9d6*/1U, /*@>4962c*/30.0, /*@>4962b*/30.0, /*@>495bf*/"RGB ", /*@>7b9d9*/1, /*@>7b9dc*/3, /*@>7b9df*/528, /*@>7b9e2*/432, /*@>7b9e5*/0U, /*@>7b9e8*/1, /*@>7b9eb*/1, /*@>49623*/NULL);
+    /*@>68ca6*/LibCreate_Video(&/*@>712f9*/cellcounting_DW./*@>7be0c*/ResultsDisplay_ToVideoDevice/*@>b307*/[/*@>49621*/0U], /*@>4961f*/0, "cellcounting/Display\nResults/Results Display", /*@>495bd*/"Results Display", /*@>7b9ee*/0U, &/*@>712ff*/cellcounting_DW./*@>7be0f*/ResultsDisplay_VideoInfo/*@>b304*/[/*@>49622*/0U], /*@>7b9f1*/1U, /*@>7b9f4*/115, /*@>7b9f7*/153, /*@>7b9fa*/0U, /*@>7b9fd*/528, /*@>7ba00*/432, /*@>7ba03*/0, /*@>7ba06*/0U, /*@>7ba09*/1U);
+}
+/*@>b30c*/if (*/*@<7bc56*//*@>49613*/sErr/*@>49e4f*/ == /*@>49e4b*/0) {
+    /*@>68ca8*/LibStart(&/*@>71305*/cellcounting_DW./*@>7be12*/ResultsDisplay_ToVideoDevice/*@>b30e*/[/*@>49611*/0U]);
+}
+/*@>b313*/if (*/*@<7bc52*//*@>4960e*/sErr/*@>49e49*/ != /*@>49e45*/0) {
+    /*@>68caa*/DestroyHostLibrary(&/*@>7130b*/cellcounting_DW./*@>7be15*/ResultsDisplay_ToVideoDevice/*@>b315*/[/*@>4960c*/0U]);
+    /*@>b31a*/if (*/*@<7bc4d*//*@>49609*/sErr/*@>49e43*/ != /*@>49e3f*/0) {
+        %<SLibCG_DumpSSCode("/*@[77102*/",(RTMSetErrStat("/*@>49606*/sErr")),"/*@]*/")>;
+        %<SLibCG_DumpSSCode("/*@[77105*/",(RTMSetStopRequested(1)),"/*@]*/")>;
+    }
+}
+/* End of Start for S-Function (svipwvo2): '<S1>/Results Display' */
+
+/* Start for S-Function (sdspwmmfi2): '<Root>/Read Video' */
+/*@>495ff*/sErr/*@>b380*/ = /*@>68cb0*/GetErrorBuffer(&/*@>71311*/cellcounting_DW./*@>7be18*/ReadVideo_HostLib/*@>b37e*/[/*@>49602*/0U]);
+/*@>68cb2*/CreateHostLibrary(/*@>495bc*/"frommmfile.dll", &/*@>71317*/cellcounting_DW./*@>7be1b*/ReadVideo_HostLib/*@>b386*/[/*@>495fe*/0U]);
+/*@>68cb6*/createAudioInfo(&/*@>7131d*/cellcounting_DW./*@>7be1e*/ReadVideo_AudioInfo/*@>b38c*/[/*@>495fc*/0U], /*@>7ba0c*/0U, /*@>7ba0f*/0U, /*@>495f8*/0.0, /*@>7ba12*/0, /*@>7ba15*/0, /*@>7ba18*/0, /*@>7ba1b*/0, /*@>68cb4*/GetNullPointer());
+/*@>68cba*/createVideoInfo(&/*@>71323*/cellcounting_DW./*@>7be21*/ReadVideo_VideoInfo/*@>b393*/[/*@>495f3*/0U], /*@>7ba1e*/1U, /*@>495f0*/30.00003000003, /*@>495ef*/30.00003000003, /*@>495ba*/"RGB ", /*@>7ba21*/1, /*@>7ba24*/1, /*@>7ba27*/528, /*@>7ba2a*/432, /*@>7ba2d*/0U, /*@>7ba30*/1, /*@>7ba33*/1, /*@>68cb8*/GetNullPointer());
+/*@>b398*/if (*/*@<7bc41*//*@>495e6*/sErr/*@>49e3d*/ == /*@>49e39*/0) {
+    /*@>68cbc*/LibCreate_FromMMFile(&/*@>71329*/cellcounting_DW./*@>7be24*/ReadVideo_HostLib/*@>b3a1*/[/*@>495e2*/0U], /*@>495e0*/0, /*@>1b6cb*/(void *)

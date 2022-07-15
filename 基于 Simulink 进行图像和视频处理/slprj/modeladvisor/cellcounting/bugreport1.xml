@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <language>en-us</language>
+    <title>MathWorks - Bug Reports</title>
+    <link>https://www.mathworks.com/support/bugreports/</link>
+    <description>The most recent published and/or updated Bug Reports for  R2018a (Exists in):  Simulink Test</description>
+  </channel>
+</rss>

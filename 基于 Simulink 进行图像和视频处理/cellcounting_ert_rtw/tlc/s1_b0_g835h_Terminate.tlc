@@ -1,0 +1,43 @@
+%implements s1_b0_g835h_Terminate "C"
+
+%function Terminate(block, system) Output
+%assign cfgTxt = ""
+%openfile cfgTxt
+%assign localVarDecl = ""
+%openfile localVarDecl
+
+char_T *sErr;
+%closefile localVarDecl
+/* Terminate for S-Function (svipwvo2): '<S1>/Results Display' */
+/*@>49229*/sErr/*@>ae5e*/ = /*@>68c84*/GetErrorBuffer(&/*@>712b7*/cellcounting_DW./*@>7b998*/ResultsDisplay_ToVideoDevice/*@>ae5c*/[/*@>49227*/0U]);
+/*@>68c86*/LibTerminate(&/*@>712bd*/cellcounting_DW./*@>7b99b*/ResultsDisplay_ToVideoDevice/*@>ae5f*/[/*@>4922b*/0U]);
+/*@>ae64*/if (*/*@<7b95d*//*@>4922d*/sErr/*@>49e21*/ != /*@>49e1d*/0) {
+    %<SLibCG_DumpSSCode("/*@[7704b*/",(RTMSetErrStat("/*@>49230*/sErr")),"/*@]*/")>;
+    %<SLibCG_DumpSSCode("/*@[7704e*/",(RTMSetStopRequested(1)),"/*@]*/")>;
+}
+/*@>68c8c*/LibDestroy(&/*@>712c3*/cellcounting_DW./*@>7b99e*/ResultsDisplay_ToVideoDevice/*@>ae69*/[/*@>49235*/0U], /*@>7b951*/0);
+/*@>68c8e*/DestroyHostLibrary(&/*@>712c9*/cellcounting_DW./*@>7b9a1*/ResultsDisplay_ToVideoDevice/*@>ae6b*/[/*@>49238*/0U]);
+/* End of Terminate for S-Function (svipwvo2): '<S1>/Results Display' */
+
+/* Terminate for S-Function (sdspwmmfi2): '<Root>/Read Video' */
+/*@>4923c*/sErr/*@>ae91*/ = /*@>68c90*/GetErrorBuffer(&/*@>712cf*/cellcounting_DW./*@>7b9a4*/ReadVideo_HostLib/*@>ae8f*/[/*@>4923a*/0U]);
+/*@>68c92*/LibTerminate(&/*@>712d5*/cellcounting_DW./*@>7b9a7*/ReadVideo_HostLib/*@>ae92*/[/*@>4923e*/0U]);
+/*@>ae97*/if (*/*@<7b969*//*@>49240*/sErr/*@>49e1b*/ != /*@>49e17*/0) {
+    %<SLibCG_DumpSSCode("/*@[77052*/",(RTMSetErrStat("/*@>49243*/sErr")),"/*@]*/")>;
+    %<SLibCG_DumpSSCode("/*@[77055*/",(RTMSetStopRequested(1)),"/*@]*/")>;
+}
+/*@>68c98*/LibDestroy(&/*@>712db*/cellcounting_DW./*@>7b9aa*/ReadVideo_HostLib/*@>ae9c*/[/*@>49248*/0U], /*@>7b954*/0);
+/*@>68c9a*/DestroyHostLibrary(&/*@>712e1*/cellcounting_DW./*@>7b9ad*/ReadVideo_HostLib/*@>ae9e*/[/*@>4924b*/0U]);
+/* End of Terminate for S-Function (sdspwmmfi2): '<Root>/Read Video' */
+%closefile cfgTxt
+%<cfgTxt>
+%<LibSetSystemField(system, "CachedTerminateLocalVars", localVarDecl)>
+%endfunction
+%function TerminateFcnProtoType(block, system) Output
+%assign fcnProtoType = ""
+%openfile fcnProtoType
+static void Terminate(\
+%assign comma = ""
+%closefile fcnProtoType
+%<SLibCG_SetFcnProtoType(0, 1, fcnProtoType)>
+%endfunction
